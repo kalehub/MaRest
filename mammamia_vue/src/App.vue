@@ -55,6 +55,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     data() {
         return{
@@ -71,6 +72,15 @@ export default {
     },
     beforeCreate(){
         this.$store.commit('initializeStore')
+        const token = this.$store.state.token
+
+        if(token){ // if the user is autheticated
+            axios.defaults.headers.common['Authorization'] = 'Token '+token
+        } else{ // if the user is not authenticated
+            axios.defaults.headers.common['Authorization'] = ''
+        }
+
+
 
     },
     computed:{
