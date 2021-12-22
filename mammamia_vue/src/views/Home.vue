@@ -2,7 +2,7 @@
   <div class="home">
     <section class="hero is-medium is-dark mb-6">
         <div class="hero-body has-text text-centered">
-            <p class="mb-6 title">Welcome to Mammamia</p>
+            <p class="mb-6 title">Welcome to Mammamia Renon</p>
             <p class="subtitle">Makan yuk!</p>
         </div>
     </section>
