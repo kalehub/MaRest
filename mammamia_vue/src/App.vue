@@ -1,6 +1,7 @@
 <template>
   <div id="wrapper">
-    <nav class="navbar is-dark">
+    <AppNavBarFree/>
+    <nav class="navbar">
         <div class="navbar-brand">
             <router-link to="/" class="navbar-item"><strong>Mammamia</strong></router-link>
             <!-- Hamburger Menu -->
@@ -29,7 +30,7 @@
                 <div class="navbar-item">
                     <div class="buttons">
                         <router-link to="/log-in" class="button is-white">Log In</router-link>
-                        <router-link to="/cart" class="button is-success">
+                        <router-link to="/cart" class="button is-primary">
                             <span class="icon"><i class="fas fa-shopping-cart"></i></span>
                             <span>Cart ({{ cartTotalLength }})</span>
                         </router-link>
@@ -56,7 +57,12 @@
 
 <script>
 import axios from 'axios'
+import AppNavBarFree from '@/components/AppNavBarFree'
+
 export default {
+    components: {
+      AppNavBarFree
+    },
     data() {
         return{
             showMobileMenu: false,
@@ -96,7 +102,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../node_modules/bulma';
+@import '~bulma/css/bulma.css';
 
 
 /* loading bar styling */
