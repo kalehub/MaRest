@@ -1,16 +1,16 @@
 <template>
     <div class="page-log-in">
         <div class="column is-4 is-offset-4">
-            <h1 class="title">Login</h1>
+            <h1 style="color:#128774;" class="title">Masuk/Daftar</h1>
             <form @submit.prevent='submitForm'>
                 <div class="field">
-                    <label for="">Username</label>
+                    <label style="color:#128774;" for="">Nama Pengguna</label>
                     <div class="control">
                         <input type="text" class="input" v-model="username">
                     </div>
                 </div>
                 <div class="field">
-                    <label for="">Password</label>
+                    <label style="color:#128774;" for="">Password</label>
                     <div class="control">
                         <input type="password" class="input" v-model="password">
                     </div>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="field">
                     <div class="control">
-                        <button class="button is-dark">Log in</button>
+                        <button class="button is-primary">Masuk</button>
                     </div>
                 </div>
                 <hr>

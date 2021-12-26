@@ -3,7 +3,7 @@
     <AppNavBarFree/>
     <nav class="navbar">
         <div class="navbar-brand">
-            <router-link to="/" class="navbar-item"><strong>Mammamia</strong></router-link>
+            <router-link to="/" class="navbar-item"><strong>MAMMA MIA</strong></router-link>
             <!-- Hamburger Menu -->
             <a class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu" @click="showMobileMenu = !showMobileMenu">
                 <span aria-hidden="true"></span>
@@ -39,6 +39,7 @@
             </div>
         </div>
     </nav>
+    <AppNavBarMenu/>
 
     <!-- Loading Bar -->
     <div class="is-loading-bar has-text-centered" v-bind:class="{'is-loading': $store.state.isLoading}">
@@ -49,19 +50,21 @@
     <section class="section">
         <router-view/>
     </section>
-    <footer class="footer">
-        <p class="has-text-centered">Copyright (c) 2021</p>
-    </footer>
+    <AppFooter/>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import AppNavBarFree from '@/components/AppNavBarFree'
+import AppNavBarMenu from '@/components/AppNavBarMenu'
+import AppFooter from '@/components/AppFooter'
 
 export default {
     components: {
-      AppNavBarFree
+      AppNavBarFree,
+      AppNavBarMenu,
+      AppFooter
     },
     data() {
         return{

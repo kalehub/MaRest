@@ -1,11 +1,11 @@
 <template>
     <nav class="navbar">
         <div class="container freedelivery is-fluid">
-            <div class="column has-text-centered">
-                    <element class="content">
-                        <h6 style="color:white;">FREE DELIVERY RENON AREA</h6>
-                    </element>
-            </div>   
+            <element class="column has-text-centered">
+              <element class="content">
+                <h6 style="color:white; margin-top:10px; letter-spacing: 0.1em;"><b>FREE DELIVERY RENON AREA</b></h6>
+              </element>
+            </element>   
         </div>   
     </nav>
 </template>
@@ -17,8 +17,4 @@
   }
 </script>
 
-<style lang="scss">
-@import '~bulma/css/bulma.css';
-
-</style>
 
