@@ -7,11 +7,8 @@
             <div class="column is-12">
                 <button @click='logout()' class="button is-danger">Log out</button>
             </div>
-
         </div>
-
     </div>
-    
 </template>
 
 <script>
@@ -30,9 +27,8 @@ export default {
             localStorage.removeItem('username')
             localStorage.removeItem('password')
             localStorage.removeItem('userid')
-
             this.$store.commit('removeToken')
-            this.$router.push('/')
+            this.$router.push({name:'Home'})
         }
     }
 

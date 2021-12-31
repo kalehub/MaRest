@@ -1,3 +1,18 @@
-$primary: #E9C46A;
+// Typography
+@import url('https://fonts.googleapis.com/css?family=Bentham:400,700');
+// Set colors
+$red: #E76F51;
+$orange: #E9C46A;
+$brown: #2A9D8F;
+$beige-light: #D0D1CD;
+$beige-lighter: #EFF0EB;
+
+// Update Bulma's global variables
+$family-sans-serif: "Bentham", sans-serif;
+$grey-dark: $brown;
+$grey-light: $beige-light;
+$primary: $orange;
+$link: $red;
+$footer-background-color:$orange;
 
 @import '~bulma/bulma';

@@ -1,55 +1,62 @@
 <template>
-  <div id="wrapper">
+    <div class="app">
     <AppNavBarFree/>
-    <nav class="navbar">
-        <div class="navbar-brand">
-            <router-link to="/" class="navbar-item"><strong>MAMMA MIA</strong></router-link>
-            <!-- Hamburger Menu -->
-            <a class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu" @click="showMobileMenu = !showMobileMenu">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-        <div class="navbar-menu" id="navbar-menu" v-bind:class="{'is-active': showMobileMenu }">
-            <div class="navbar-start">
-                <div class="navbar-item">
-                    <form method="get" action="/search">
-                        <div class="field has-addons">
-                            <div class="control">
-                                <input type="text" class="input" placeholder="Search something" name="query">
-                            </div>
-                            <div class="control"><button class="button is-sucess"><span class="icon"><i class="fas fa-search"></i></span></button></div> 
-                        </div>
-                    </form>
+        <nav class="navbar">
+                <div class="navbar-brand">
+                    <router-link to="/" class="navbar-item"><strong>MAMMA MIA</strong></router-link>
+                    <!-- Hamburger Menu -->
+                    <a class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu" @click="showMobileMenu = !showMobileMenu">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
                 </div>
-            </div>
-            <div class="navbar-end">
-                <router-link to="/pasta" class="navbar-item">Pasta</router-link>
-                <router-link to="/salad" class="navbar-item">Salad</router-link>
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <router-link to="/log-in" class="button is-white">Log In</router-link>
-                        <router-link to="/cart" class="button is-primary">
-                            <span class="icon"><i class="fas fa-shopping-cart"></i></span>
-                            <span>Cart ({{ cartTotalLength }})</span>
-                        </router-link>
+                <div class="navbar-menu" id="navbar-menu" v-bind:class="{'is-active': showMobileMenu }">
+                    <div class="navbar-start">
+                        <div class="navbar-item">
+                            <form method="get" action="/search">
+                                <div class="field has-addons">
+                                    <div class="control">
+                                        <input type="text" class="input" placeholder="Search something" name="query">
+                                    </div>
+                                    <div class="control"><button class="button is-sucess"><span class="icon"><i class="fas fa-search"></i></span></button></div> 
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div v-if="$store.state.isAuthenticated === true" class="navbar-end">
+                        <router-link to="/about" class="navbar-item">Kontak</router-link>
+                        <router-link to="#" class="navbar-item">Akun</router-link>
+                        <div class="navbar-item">
+                            <div class="buttons">
+                                <button @click='logout()' class="button is-danger">Log out</button>
+                                <router-link to="/cart" class="button is-primary">
+                                    <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                                    <span>Cart ({{ cartTotalLength }})</span>
+                                </router-link>
+                            </div>
+                        </div>
+                    </div>
+                    <div v-if="$store.state.isAuthenticated === false" class="navbar-end">
+                        <router-link to="/about" class="navbar-item">Kontak</router-link>
+                        <router-link to="#" class="navbar-item">Akun</router-link>
+                        <div class="navbar-item">
+                            <div class="buttons">
+                                <router-link to="/log-in" class="button is-white">Log In</router-link>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </nav>
+        <AppNavBarMenu/>
+        <!-- Loading Bar -->
+        <div class="is-loading-bar has-text-centered" v-bind:class="{'is-loading': $store.state.isLoading}">
+            <div class="lds-dual-ring">
             </div>
         </div>
-    </nav>
-    <AppNavBarMenu/>
-
-    <!-- Loading Bar -->
-    <div class="is-loading-bar has-text-centered" v-bind:class="{'is-loading': $store.state.isLoading}">
-        <div class="lds-dual-ring">
+        <div class="wrapper">
+            <router-view />
         </div>
-    </div>
-    
-    <section class="section">
-        <router-view/>
-    </section>
     <AppFooter/>
   </div>
 </template>
@@ -72,9 +79,8 @@ export default {
             // simpan cart untuk dibawa ke state
             cart: {
                 items: [],
-            }
+            },
         }
-        
     },
     mounted(){
         this.cart = this.$store.state.cart
@@ -88,9 +94,6 @@ export default {
         } else{ // if the user is not authenticated
             axios.defaults.headers.common['Authorization'] = ''
         }
-
-
-
     },
     computed:{
         cartTotalLength(){
@@ -100,7 +103,18 @@ export default {
             }
             return totalLength
         }
-    }
+    },
+    methods:{
+        logout(){
+            axios.defaults.headers.common['Authorization'] = ''
+            localStorage.removeItem('token')
+            localStorage.removeItem('username')
+            localStorage.removeItem('password')
+            localStorage.removeItem('userid')
+            this.$store.commit('removeToken')
+            this.$router.push({name:'Home'})
+        }
+    },
 }
 </script>
 
@@ -144,8 +158,6 @@ export default {
         height: 80px;
     }
 }
-
-
 
 /* end of loading bar styling */
 </style>

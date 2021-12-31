@@ -42,8 +42,6 @@ INSTALLED_APPS = [
     'corsheaders',  # rest auth token for authentification
     'djoser',  # rest auth token for authentification
     'product',
-
-
 ]
 
 # Setting djoser (authentification)
@@ -93,11 +91,23 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'MM_REST',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': '',
         'HOST': '127.0.0.1',
-        'PORT': '8889',
+        'PORT': '3306',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         POWERED BY MYSQL
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'MM_REST',
+#         'USER': 'root',
+#         'PASSWORD': 'root',
+#         'HOST': '127.0.0.1',
+#         'PORT': '8889',
+#     }
+# }
 
 
 # Password validation

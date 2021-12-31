@@ -1,25 +1,36 @@
 <template>
-    <nav class="navbar-menu">
-        <div class="container is-fluid mt-5">
-            <element class="columns columns.is-multiline columns.is-mobile columns.is-desktop has-text-centered">
-                <element class="">
-                    <router-link to="#" class="navbar-item">PIZZA</router-link>
-                </element>
-                <element class="">
-                    <router-link to="#" class="navbar-item">STARTERS</router-link>
-                </element>
-                <element class="">
-                    <router-link to="#" class="navbar-item">MOST ORDERED</router-link>
-                </element>
-                <element class="">
-                    <router-link to="#" class="navbar-item">MAIN</router-link>
-                </element>
-                <element class="">
-                    <router-link to="#" class="navbar-item">SALAD</router-link>
-                </element>
-            </element>
-        </div>   
-    </nav>
+    <div class="columns is-multiline is-1-mobile is-0-tablet is-3-desktop">
+      <div class="column is-1"></div>
+      <div class="column has-text-centered-mobile is-one-quarter">
+            <router-link to="#" class="navbar-item">PIZZA</router-link>
+            <router-link to="#" class="navbar-item">STARTERS</router-link>
+            <router-link to="#" class="navbar-item">MOST ORDERED</router-link>
+            <router-link to="#" class="navbar-item">MAIN</router-link>
+            <router-link to="#" class="navbar-item">SALAD</router-link>
+          </div>
+      <div class="column has-text-centered">
+        <div class="columns">
+          <div class="column">
+            <p class="">Logo</p>
+            <div class="columns is-mobile mt-5">
+              <div class="column is-size-4">
+                <span class="icon has-text-info">
+                  <i class="fas fa-info-circle"></i>
+                </span>
+                <span class="icon has-text-success pl-5 pr-5">
+                  <i class="fas fa-check-square"></i>
+                </span>
+                <span class="icon has-text-warning">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column has-text-centered is-size-5">AUTHENTIC WOOD FIRED PIZZA <br> TRADITIONAL ITALIAN <br> HOME COOKING</div>
+      <div class="column is-1"></div>
+    </div>
 </template>
 
 <script>

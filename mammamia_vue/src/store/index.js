@@ -8,7 +8,7 @@ export default createStore({
         isAuthenticated: false,
         token: '',
         isLoading: false,
-  },
+    },
     mutations: {
         initializeStore(state) {
             if (localStorage.getItem('cart')) {
@@ -49,7 +49,7 @@ export default createStore({
         removeToken(state) {
             state.token = ''
             state.isAuthenticated = false
-        }
+        },
   },
   actions: {
   },
