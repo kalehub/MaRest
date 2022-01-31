@@ -1,6 +1,6 @@
 <template>
   <footer class="footer mt-5">
-    <div class="columns is-multiline is-1-mobile is-0-tablet is-3-desktop">
+    <div class="columns is-1-mobile is-0-tablet is-3-desktop">
       <div class="column is-1"></div>
       <div class="column has-text-centered-mobile is-one-quarter"><h1 class="is-size-4">MAMMA MIA</h1><p>Cabang Renon</p></div>
       <div class="column has-text-centered">
@@ -35,6 +35,8 @@
     data: () => ({})
   }
 </script>
+
+
 
 
 

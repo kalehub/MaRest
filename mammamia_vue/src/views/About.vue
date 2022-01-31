@@ -1,16 +1,27 @@
 <template>
-<section class="hero is-success is-fullheight">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        Fullheight title
-      </h1>
-      <h2 class="subtitle">
-        Fullheight subtitle
-      </h2>
+  <div class="hero">
+    <div class="hero is-fullheight is-light has-background">
+      <img alt="burger background" class="section--left is-transparent" src="@/assets/images/bghome.jpeg" />
+      <div class="hero-body has-text-centered">
+        <div class="container">
+          <h1 class="title">
+            MAMMAMIA RENON 
+          </h1>
+          <h3 class="subtitle">
+            pick up or delivery
+          </h3>
+        </div>
+        <div class="container">
+          <h1 class="title">
+            MAMMAMIA RENON 
+          </h1>
+          <h3 class="subtitle">
+            pick up or delivery
+          </h3>
+        </div>
+      </div>
     </div>
   </div>
-</section>
 </template>
 
 <script>
@@ -19,7 +30,7 @@ import axios from 'axios'
 import ProductBox from '@/components/ProductBox.vue'
 
 export default {
-  name: 'Home',
+  name: 'About',
   data(){
       return{
           
@@ -31,15 +42,15 @@ export default {
 <style lang="scss">
 @import '~bulma/css/bulma.css';
 
-.img{
-position: absolute;
-width: 1440px;
-height: 674px;
-left: 0px;
-top: 246px;
-
-background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url();
+.section--left {
+    overflow: hidden;
+    position: absolute;
+    z-index: 2;
+    width: calc(58.4vw - 22px);
+    height: calc(100vh - 1px);
 }
-
+.section--left.is-transparent {
+  opacity: 0.3;
+}
 </style>
 

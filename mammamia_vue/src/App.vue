@@ -2,8 +2,8 @@
     <div class="app">
     <AppNavBarFree/>
         <nav class="navbar">
-                <div class="navbar-brand">
-                    <router-link to="/" class="navbar-item"><strong>MAMMA MIA</strong></router-link>
+            <div class="navbar-brand">
+                <router-link to="/" class="navbar-item"><strong>MAMMA MIA</strong></router-link>
                     <!-- Hamburger Menu -->
                     <a class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu" @click="showMobileMenu = !showMobileMenu">
                         <span aria-hidden="true"></span>
@@ -29,20 +29,21 @@
                         <router-link to="#" class="navbar-item">Akun</router-link>
                         <div class="navbar-item">
                             <div class="buttons">
-                                <button @click='logout()' class="button is-danger">Log out</button>
+                                <router-link to="/about" class="navbar-item">Kontak</router-link>
+                                <router-link to="#" class="navbar-item">Akun</router-link>
                                 <router-link to="/cart" class="button is-primary">
                                     <span class="icon"><i class="fas fa-shopping-cart"></i></span>
                                     <span>Cart ({{ cartTotalLength }})</span>
                                 </router-link>
+                                <button @click='logout()' class="button is-danger">Log out</button>
                             </div>
                         </div>
                     </div>
                     <div v-if="$store.state.isAuthenticated === false" class="navbar-end">
                         <router-link to="/about" class="navbar-item">Kontak</router-link>
-                        <router-link to="#" class="navbar-item">Akun</router-link>
                         <div class="navbar-item">
                             <div class="buttons">
-                                <router-link to="/log-in" class="button is-white">Log In</router-link>
+                                <router-link to="/log-in" class="button is-primary">Log In</router-link>
                             </div>
                         </div>
                     </div>

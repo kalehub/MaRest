@@ -1,36 +1,36 @@
 <template>
-    <div class="page-log-in">
-        <div class="column is-4 is-offset-4">
-            <h1 style="color:#128774;" class="title">Masuk/Daftar</h1>
-            <form @submit.prevent='submitForm'>
-                <div class="field">
-                    <label style="color:#128774;" for="">Nama Pengguna</label>
-                    <div class="control">
-                        <input type="text" class="input" v-model="username">
-                    </div>
-                </div>
-                <div class="field">
-                    <label style="color:#128774;" for="">Password</label>
-                    <div class="control">
-                        <input type="password" class="input" v-model="password">
-                    </div>
-                </div>
-                <div class="notification is-danger" v-if="errors.length">
-                    <p v-for="error in errors" v-bind:key="error">{{ error}}</p>
-                </div>
-                <div class="field">
-                    <div class="control">
-                        <button class="button is-primary">Masuk</button>
-                    </div>
-                </div>
-                <hr>
-                or <router-link to='/sign-up'>Sign up</router-link> if you don't have an account
-
-            </form>
-
+    <div class="columns is-multiline is-1-mobile is-0-tablet is-2-desktop mt-5 mb-3 ml-5 mr-5">
+        <div class="column is-offset-3 is-one-quarter mt-6">
+            <h1 style="color:#E76F51;" class="is-size-4">Gratis Bikin Akun</h1>
+            <p style="color:#E76F51;">Buat akun untuk mendapatkan promo menarik</p>
+            <p class="mt-2"></p>
+            <button @click='toSignUp' class="button is-primary mb-5 mt-5">Daftar Sekarang</button>
         </div>
+        <div class="columns ml-4 mr-3"> 
+        <form @submit.prevent='submitForm'>
+             <h1 style="color:#E76F51;" class="is-size-4"> <center>Masuk/Daftar</center> </h1>
+            <div class="field">
+                <label style="color:#E76F51;" for="">Nama Pengguna</label>
+                <div class="control">
+                    <input type="text" class="input" v-model="username">
+                </div>
+            </div>
+            <div class="field">
+                <label style="color:#E76F51;" for="">Password</label>
+                <div class="control">
+                    <input type="password" class="input" v-model="password">
+                </div>
+            </div>
+            <div class="notification is-danger" v-if="errors.length">
+                <p v-for="error in errors" v-bind:key="error">{{ error}}</p>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button class="button is-fullwidth is-primary">Masuk</button>
+                </div>
+            </div>
+        </form></div>
     </div>
-    
 </template>
 
 <script>
@@ -75,6 +75,9 @@ export default {
                         console.log(JSON.stringify(error))
                     }
                 })
+        },
+        toSignUp(){
+            this.$router.push({name:'Signup'})
         }
 
     }

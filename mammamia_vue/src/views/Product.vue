@@ -9,14 +9,19 @@
                 <p>{{product.description}}</p>
             </div>
             <div class="column is-3">
-                <h2 class="subtitle">Information</h2>
-                <p><strong>Price:</strong>Rp.{{product.price}}</p>
-                <div class="field has-addons mt-6">
+                <h2 class="subtitle"><b>Information</b></h2>
+                <p>Harga: Rp.{{product.price}}</p>
+                <div v-if="$store.state.isAuthenticated === true" class="field has-addons mt-6">
                     <div class="control">
                         <input type="number" class="input" min="1" v-model="quantity">
                     </div>
                     <div class="control">
                         <a class="button is-dark" @click="addToCart">Add to cart</a>
+                    </div>
+                </div>
+                <div v-if="$store.state.isAuthenticated === false" class="field has-addons mt-6">
+                    <div class="control">
+                        <a class="button is-dark" @click="toLogin">Login dulu yaa!</a>
                     </div>
                 </div>
             </div>
@@ -78,7 +83,10 @@
                  duration: 2000,
                  position: 'bottom-right',
              })
-         }
+        },
+        toLogin() {
+            this.$router.push({name:'Login'})
+        }
      }
  }
  </script>
